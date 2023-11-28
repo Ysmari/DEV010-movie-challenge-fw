@@ -1,4 +1,4 @@
-import { useState } from 'react'
+/* import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -32,4 +32,20 @@ function App() {
   )
 }
 
-export default App
+export default App */
+
+import Header from './components/Header/Header';
+import MovieList from './components/MovieList/MovieList';
+// Importa App.css si tienes estilos globales aquí
+import './App.css';
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <MovieList />
+    </div>
+  );
+}
+
+export default App;
