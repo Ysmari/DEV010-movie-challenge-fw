@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import { Movie } from '../../types';
-import './MovieList.css'; // Si tienes estilos específicos para MovieList
+import './MovieList.css'; 
 
 const MovieList: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);

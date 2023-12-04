@@ -1,0 +1,27 @@
+ 
+ /* Header.css */
+header {
+    padding: 3rem;
+    margin:1rem ;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .movie-part {
+    color: #9A4C95;
+    font-size: 5rem; /* Tamaño más grande para "Movie" */
+  }
+  
+  .zone-part {
+    color: #9B7EDE;
+    font-size: 5rem; /* Tamaño más pequeño para "Zone" */
+  }
+  
+ 
+  
