@@ -1,12 +1,12 @@
-import React from 'react';
-import { Movie } from '../../types';
-import './MovieCard.css'; // Si tienes estilos específicos para MovieCard
+ import React from 'react'; //  es necesario para usar JSX
+import { Movie } from '../../types'; // importa el tipo Movie que se utiliza en la interfaz MovieCardProps.
+import './MovieCard.css'; // Importa los estilos específicos para MovieCard
 
-interface MovieCardProps {
+interface MovieCardProps { //  Props: objeto de tipo 'movie' que muestra titulo, F/L e imagen //
   movie: Movie;
 }
-
-const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
+// con javascript puro: const MovieCard = ({ movie }) => { //
+ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {  //  React.FC deja claro que MovieCard es un componente funcional de React y no solo una función TypeScript ordinaria.//
   return (
     <div>
       <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
@@ -16,5 +16,4 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   );
 };
 
-export default MovieCard;
-
+export default MovieCard; 

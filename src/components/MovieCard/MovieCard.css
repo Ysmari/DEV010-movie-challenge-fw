@@ -1,0 +1,21 @@
+.movie-card {
+    background-color: white; /* Fondo de la tarjeta */
+    padding: 1rem; /* Espaciado interno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para resaltar las tarjetas */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  .movie-card img {
+    max-width: 100%; /* Asegura que la imagen no sobrepase el ancho de la tarjeta */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+  
+  .movie-card h3 {
+    margin-top: 0.5rem;
+    font-size: 1.2rem; /* Tamaño del título */
+  }
+  
+  .movie-card p {
+    margin-top: 0.25rem;
+    font-size: 1rem; /* Tamaño de la fecha */
+   }

@@ -1,30 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import { Movie } from '../../types';
-import './MovieList.css'; 
+import './MovieList.css';
+import { fetchMoviesByGenre } from '../../api/movieApi';
 
 const MovieList: React.FC = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<Movie[]>([]); /* Se  Utiliza el hook useState para almacenar la lista de películas */
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const genreIds = '12,14'; // Aventura y Fantasía
-      const url = `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_API_KEY}&with_genres=${genreIds}`;
-
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        setMovies(data.results);
-      } catch (error) {
-        console.error('Error fetching movies:', error);
-      }
+  useEffect(() => {  /*  useEffect para cargar las películas al montar el componente */
+    const loadMovies = async () => { // loadMovie hace la solicitud a la Api para obtener las peliculas por genero //
+      const genreIds = '12,14,16'; // Aventura, Fantasía,Animacion
+      const moviesFetched = await fetchMoviesByGenre(genreIds);
+      setMovies(moviesFetched);
     };
 
-    fetchMovies();
+    loadMovies();
   }, []);
 
   return (
-    <div>
+    <div className="movie-list">
       {movies.map((movie) => (
         <MovieCard key={movie.id} movie={movie}/>
       ))}
@@ -32,4 +26,4 @@ const MovieList: React.FC = () => {
   );
 };
 
-export default MovieList;
+export default MovieList; 

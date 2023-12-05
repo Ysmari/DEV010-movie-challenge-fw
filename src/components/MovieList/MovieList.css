@@ -1,6 +1,6 @@
+/* MovieList.css */
 .movie-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 1rem;
-    padding: 1rem;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(00px, 1fr)); /* Crea columnas de al menos 200px */
+  gap: 13rem; }/* Espacio entre tarjetas */
+

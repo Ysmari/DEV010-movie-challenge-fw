@@ -1,4 +1,3 @@
-// Header.tsx
 import React from 'react';
 import './Header.css'; // Asegúrate de importar tu archivo CSS
 
