@@ -8,7 +8,7 @@ interface MovieCardProps { //  Props: objeto de tipo 'movie' que muestra titulo,
 // con javascript puro: const MovieCard = ({ movie }) => { //
  const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {  //  React.FC deja claro que MovieCard es un componente funcional de React y no solo una función TypeScript ordinaria.//
   return (
-    <div>
+    <div className="movie-card">
       <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
       <h3>{movie.title}</h3>
       <p>{movie.release_date}</p>
