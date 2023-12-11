@@ -5,25 +5,42 @@ import './MovieList.css';
 import { fetchMoviesByGenre } from '../../api/movieApi';
 
 const MovieList: React.FC = () => {
-  const [movies, setMovies] = useState<Movie[]>([]); /* Se  Utiliza el hook useState para almacenar la lista de películas */
-
-  useEffect(() => {  /*  useEffect para cargar las películas al montar el componente */
-    const loadMovies = async () => { // loadMovie hace la solicitud a la Api para obtener las peliculas por genero //
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  useEffect(() => {
+    const loadMovies = async () => {
       const genreIds = '12,14,16'; // Aventura, Fantasía,Animacion
-      const moviesFetched = await fetchMoviesByGenre(genreIds);
-      setMovies(moviesFetched);
+      const data = await fetchMoviesByGenre(genreIds, currentPage);
+      setMovies(data.results);
+      setTotalPages(data.total_pages);
     };
-
     loadMovies();
-  }, []);
-
+  }, [currentPage]);
+  // Funciones para cambiar la página
+  const goToNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+  const goToPrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
   return (
-    <div className="movie-list">
-      {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie}/>
-      ))}
+    <div>
+      <div className="movie-list">
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie}/>
+        ))}
+      </div>
+      <div className="pagination-controls">
+        <button onClick={goToPrevPage} disabled={currentPage === 1}>Anterior</button>
+        <span>Página {currentPage} de {totalPages}</span>
+        <button onClick={goToNextPage} disabled={currentPage === totalPages}>Siguiente</button>
+      </div>
     </div>
   );
 };
-
-export default MovieList; 
+export default MovieList;
